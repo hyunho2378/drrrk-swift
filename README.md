@@ -1,57 +1,215 @@
+<div align="center">
+
+**Naver x Korea Design Membership Plus(KDM+) 통합 산학 프로젝트**<br/>
+**Team 2**
+
 # DRRRK
 
-이 저장소에는 웹 프로토타입(client)과 iOS 앱(ios) 두 가지가 함께 있다.
+1020 세대를 위한 실시간 고민 커뮤니티<br/>
+편의점 앞 의자를 끌어다 앉듯<br/>
+비슷한 고민을 가진 사람과 익명으로 마주 앉는 대화 공간
 
-## iOS 앱
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Swift](https://img.shields.io/badge/Swift-F05138?style=for-the-badge&logo=swift&logoColor=white)
+![SwiftUI](https://img.shields.io/badge/SwiftUI-0071E3?style=for-the-badge&logo=swift&logoColor=white)
+![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=apple&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 
-- 위치: `ios/`
-- 스택: SwiftUI, iOS 17 이상, XcodeGen(`ios/project.yml`)
-- 실행: `cd ios && xcodegen && open DRRRK.xcodeproj`, 또는 `DEV="iPhone 17" ios/run.sh build home`
-- 화면 값(크기, 색, 글자, 아래 탭)은 팀 피그마 값을 그대로 옮겼다. 규칙은 `ios/RULES.md`
+<img src="docs/images/cover.webp" width="860" alt="DRRRK 표지" />
 
-## 웹 프로토타입
+</div>
 
-피그마 화면 47장을 React로 옮기고 화면 사이를 이은 프로토타입이다.
+## 목차
 
-- 사이트: https://hyunho2378.github.io/drrrk/
-- 스택: React 18, Vite, JavaScript(JSX), Tailwind CSS, React Router v6
-- 배포: main에 올리면 GitHub Actions가 `client`를 빌드해 GitHub Pages에 올린다.
+- [서비스 소개](#서비스-소개)
+- [핵심 경험](#핵심-경험)
+- [기능](#기능)
+- [기술 스택](#기술-스택)
+- [프로젝트 구조](#프로젝트-구조)
+- [시작하기](#시작하기)
+- [배포](#배포)
+- [문서](#문서)
+- [팀](#팀)
 
-## 폴더
+## 서비스 소개
 
-| 경로 | 내용 |
-|---|---|
-| client/src/figma | 피그마에서 생성한 화면 47장과 컴포넌트. 손으로 고치지 않는다. 피그마를 고친 뒤 다시 생성한다. |
-| client/src/app | 화면 연결(flow.js), 화면 전환과 누름 반응. 처음 들어오면 로고 스플래시 뒤 홈(25)부터 시작한다. |
-| client/src/tokens.js | 색, 모션, 크기 토큰. 앱 레이어는 이 파일을 거쳐서만 값을 쓴다. |
-| client/src/styles | 피그마 변수(DRRRK / Color)에서 만든 CSS 변수와 글자, 효과 스타일 |
-| client/public | 그림, 글꼴(SUIT) |
+| 용어 | 뜻 |
+| --- | --- |
+| 드르륵 | 편의점 앞 플라스틱 의자를 꺼내 앉는 소리를 나타내는 1020 신조어 |
+| 진실의 의자 | 앉으면 진실만 말하게 된다고 해서 붙은 별칭 |
+| DRRRK | 그 자리를 앱 안으로 옮겨<br/>고민을 입력하면 맥락이 맞는 사람과 이어 주는<br/>실시간 음성과 채팅 커뮤니티 |
 
-## 실행
+| 구분 | 내용 |
+| --- | --- |
+| 해결하는 문제 | 콘텐츠를 보다가 "내 얘기 같다"고 공감한 순간<br/>대화 상대를 찾지 못해 다른 플랫폼으로 떠나는 흐름을<br/>네이버 안 실시간 대화로 연결 |
+| 대상 | 고민을 부담 없이 털어놓고<br/>깊이 이해받고 싶은 1020 세대 |
+
+**부담 없이 털어놓는 대화를 만드는 세 가지 규칙**
+
+| 규칙 | 내용 |
+| --- | --- |
+| 이름 | 실명 없이 쓰는 익명 대화 이름 |
+| 기록 | 원할 때만 남고 그러지 않으면 사라지는 대화 |
+| 시간 | 해가 뜨면 끝나는 20분 안팎의 대화 |
+
+<div align="center"><img src="docs/images/limits.webp" width="640" alt="세 가지 제한" /></div>
+
+## 핵심 경험
+
+**고민 입력에서 마무리까지 이어지는 다섯 단계**
+
+| 단계 | 하는 일 |
+| --- | --- |
+| 고민 입력 | 지금 떠오른 고민을 한 줄로 입력 |
+| 방 찾기 | AI가 고민의 주제와 맥락을 분석해<br/>비슷한 경험을 가진 사람이 모인 방을 추천 |
+| 앉기 | 추천받은 방에 의자를 끌어다 앉으며<br/>익명의 사람들과 대화를 시작 |
+| 대화 | 음성이나 채팅으로 이야기하고<br/>이모지로 반응하고 주전부리를 던지며 어울림 |
+| 마무리 | 해가 뜨면 대화가 끝나고<br/>나눈 이야기가 AI 리포트로 정리됨 |
+
+<div align="center"><img src="docs/images/userflow.webp" width="760" alt="사용 흐름 다섯 단계" /></div>
+
+**확장 경험**
+
+| 영역 | 내용 |
+| --- | --- |
+| 커뮤니티 | 지난 대화 다시 보기와 의견 보태기 |
+| 라이브 | 관심 주제의 영상을 듣다가 같이 앉기 |
+| 혼자 드르륵 | 사람이 없을 때 AI 의자와 먼저 대화<br/>비슷한 사람이 나타나면 함께 옮겨 앉기 |
+| 마이 | 잘 들어줄수록 오르는 엉따 온도<br/>업적과 의자 스킨 모으기 |
+
+## 기능
+
+| 영역 | 기능 |
+| --- | --- |
+| 홈과 클립 | 클립 영상 피드, 고민 입력, AI 고민 분석 |
+| 방 | 실시간 음성과 채팅, 현장 모드와 일반 모드, 발화 표시, 해 뜨기 시계 |
+| 혼자 방 | AI 의자와 먼저 대화, 비슷한 사람 등장 시 함께 방으로 이동 |
+| 주전부리 | 간식을 꺼내 던지는 반응, 퀵슬롯과 쿨타임 |
+| 리포트 | 대화 종료 리포트, 엉따 온도 변화, 공유 선택 |
+| 커뮤니티 | 카테고리와 정렬, 명예의 전당, 글 상세와 대화 다시 보기 |
+| 라이브 | 카테고리 캐러셀, 방 구경과 바로 앉기 |
+| 마이 | 엉따 온도 게이지, 업적 편의점, 의자 꾸미기와 스킨 |
+| 알림 | 활동 알림, 키워드 알림과 관리 |
+| 온보딩 | 함께 드르륵과 혼자 드르륵 안내 |
+| 소리와 영상 | 입장과 해뜨기, 클립 영상, 아이템 소리, 음성 받아쓰기 |
+
+## 기술 스택
+
+### Languages
+
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Swift](https://img.shields.io/badge/Swift-F05138?style=for-the-badge&logo=swift&logoColor=white)
+
+### Frameworks and Services
+
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![SwiftUI](https://img.shields.io/badge/SwiftUI-0071E3?style=for-the-badge&logo=swift&logoColor=white)
+![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=apple&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+
+### Design and Tools
+
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![SUIT](https://img.shields.io/badge/SUIT-111111?style=for-the-badge&logoColor=white)
+
+주요 의존성
+
+| 영역 | 이름 | 쓰임 |
+| --- | --- | --- |
+| 웹 | `react`, `react-dom` | 화면 렌더링 |
+| 웹 | `react-router-dom` | 화면 전환 라우팅 |
+| 웹 | `vite` | 개발 서버와 번들 빌드 |
+| 웹 | `tailwindcss`, `postcss`, `autoprefixer` | 유틸리티 스타일과 CSS 변환 |
+| iOS | SwiftUI | 화면과 상태 구성 |
+| iOS | AVFoundation, AVKit | 아이템 소리와 방 영상 재생 |
+| iOS | Speech | 방 입력칸 음성 받아쓰기 |
+| iOS | Observation | 화면 상태 관찰과 갱신 |
+
+## 프로젝트 구조
 
 ```
+client/                 웹 프로토타입
+  src/
+    main.jsx            앱 들머리
+    tokens.js           색과 모션, 크기 토큰
+    app/                화면 연결과 전환, 영역별 동작
+    figma/              피그마에서 생성한 화면과 컴포넌트
+    assets/             아이콘과 SVG 대응표
+    styles/             피그마 변수로 만든 CSS 변수와 글자, 효과
+  public/               그림과 SUIT 글꼴
+  package.json          의존성과 스크립트
+  vite.config.js        빌드 설정
+ios/                    SwiftUI 앱
+  DRRRK/
+    App/                들머리와 루트, 라우터, 화면 등록
+    DesignSystem/       피그마 값에서 옮긴 토큰
+    Features/           홈과 클립, 방, 혼자 방, 커뮤니티, 라이브, 마이, 알림, 온보딩
+    Resources/          이미지와 글꼴, 소리, 영상, 더미 데이터
+  project.yml           XcodeGen 프로젝트 정의
+  run.sh                빌드와 시뮬레이터 실행
+  Config/               서명 설정
+  RULES.md              iOS 화면 규칙
+.github/workflows/      웹 빌드 자동화
+docs/                   표지와 흐름 이미지
+FLOW.md                 웹 화면 연결표
+```
+
+## 시작하기
+
+### 웹
+
+```bash
 cd client
 npm install
 npm run dev
+npm run build
 ```
 
-## 화면 연결
+| 명령 | 내용 |
+| --- | --- |
+| `npm run dev` | 개발 서버 실행 |
+| `npm run build` | 운영 번들 빌드 |
+| `npm run preview` | 빌드 결과 미리보기 |
 
-FLOW.md에 화면마다 누르는 곳과 가는 화면, 전환 종류를 적었다.
+### iOS
 
-## 아이폰에 직접 설치
+| 준비 | 내용 |
+| --- | --- |
+| 환경 | macOS, Xcode, XcodeGen |
 
-맥과 Xcode가 있어야 하며, 무료 Apple 계정으로도 된다. 설치한 앱은 7일 뒤 다시 설치해야 열린다.
-
-1. 저장소를 받고 `brew install xcodegen` 뒤 `cd ios && xcodegen generate`를 실행한다.
-2. Xcode 설정의 Apple Accounts에서 본인 Apple 계정으로 로그인한다.
-3. `ios/Config/Team.local.xcconfig` 파일을 만들고 아래 두 줄을 적는다. 이 파일은 깃에 올라가지 않는다.
-
+```bash
+cd ios
+xcodegen generate
+open DRRRK.xcodeproj
 ```
-DEVELOPMENT_TEAM = 본인 팀 ID
-PRODUCT_BUNDLE_IDENTIFIER = app.drrrk.ios.본인영문이름
+
+`ios/run.sh`는 프로젝트를 다시 만들고 시뮬레이터용으로 빌드함. 화면 이름을 주면 그 화면으로 바로 띄우고 스크린샷을 남김.
+
+```bash
+DEV="iPhone 17" ios/run.sh build home
 ```
 
-4. 팀 ID는 Xcode의 Signing & Capabilities 탭 Team 칸에서 본인 이름을 고르면 확인할 수 있다. 무료 계정은 번들 ID가 사람마다 달라야 해서 끝에 이름을 붙인다.
-5. 아이폰을 케이블로 연결하고 `ios/DRRRK.xcodeproj`를 연 뒤 실행 기기에서 아이폰을 골라 실행한다.
-6. 아이폰 설정의 개인정보 보호 및 보안에서 개발자 모드를 켜고, 일반의 VPN 및 기기 관리에서 본인 계정을 신뢰로 바꾼다.
+## 배포
+
+웹은 Vercel에 올림. `main`이 운영 도메인 `drrrk.vercel.app`, `dev`는 미리보기 배포.
+
+## 문서
+
+- [FLOW.md](FLOW.md) 웹 화면마다 누르는 곳과 가는 화면, 전환 종류
+- [ios/RULES.md](ios/RULES.md) iOS 화면 값과 규칙
+
+## 팀
+
+Naver x Korea Design Membership Plus(KDM+) 통합 산학 프로젝트 Team 2
+
+| 이름 | 역할 |
+| --- | --- |
+| 조의정 | PL, UX/UI Designer |
+| 조희수 | UX/UI Designer |
+| 주현호 | UX/UI Designer, Developer |
+| 탁빛나 | Visual / Brand Designer |

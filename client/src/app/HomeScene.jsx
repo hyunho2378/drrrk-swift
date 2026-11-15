@@ -77,12 +77,14 @@ export default function HomeScene({ startOpen = false, clip = false, style, clas
   const comp = React.useRef({ on: false, val: '' });
   const anim = React.useRef(false);
 
-  // 펼친 동안은 이 화면의 누르는 자리(탭바, 알림, 칩)를 막는다. 피그마 24에서는 모두 딤 뒤에 있다.
+  // 펼친 상태(24, 63)에서도 탭바와 상단 알림, 띠는 한 번 눌러 바로 이동한다(사용자 지시 2026. 11. 15.).
+  // 예전에는 펼친 동안 누르는 자리를 모두 막아 딤이 먼저 접기만 했고, 데스크톱에서는 키보드가 탭바를 덮어 두 번 눌러야 이동했다.
+  // 이제 링크 자리는 Hotspots(z-hot)가 딤과 키보드 위에서 그대로 받아 한 번에 이동하고, 링크가 없는 빈 자리를 누르면 딤이 받아 접힌다.
   React.useEffect(() => {
     const root = __root.current;
     const host = root && root.parentElement;
     if (!host) return;
-    host.querySelectorAll('[data-hotspot]').forEach((b) => { b.style.pointerEvents = open ? 'none' : ''; });
+    host.querySelectorAll('[data-hotspot]').forEach((b) => { b.style.pointerEvents = ''; });
   });
 
   const pressTarget = () => (clip ? cardRef.current : fieldRef.current);
