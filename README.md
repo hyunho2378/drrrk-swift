@@ -1,7 +1,7 @@
 <div align="center">
 
 **Naver x Korea Design Membership Plus(KDM+) 통합 산학 프로젝트**<br/>
-**Team 2**
+
 
 # DRRRK
 
